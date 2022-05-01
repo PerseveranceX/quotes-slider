@@ -1,35 +1,47 @@
 let index = 0;
-randomquote.addEventListener("click", (eo) => {
+function changeQuote() {
   const citeArr = [
-    `Prophet Muhammad`,
-    `Prophet Muhammad`,
-    `Prophet Muhammad`,
-    `Prophet Muhammad`,
-    `Prophet Muhammad`,
-    `Omar Bin Al Khattab`,
-    `Omar Bin Al Khattab`,
-    `Omar Bin Al Khattab`,
-    `Omar Bin Al Khattab`,
-    `Omar Bin Al Khattab`
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`,
+    `Homo Sapien`
   ];
   const qouteBlockArr = [
-    `&ldquo; Do not waste water even if you were at a running stream. &rdquo;`,
-    `&ldquo; The best richness is the richness of the soul. &rdquo;`,
-    `&ldquo; speak a good word or remain silent. &rdquo;`,
-    `&ldquo; The Strong man is not the good wrestler, the strong man is only the one who controls himself when he is angry. &rdquo;`,
-    `&ldquo; Fulfill the trust for the one who entrusted you and do not cheat the one who cheated you. &rdquo;`,
-    `&ldquo; The most beloved of people to me is he that points out my flaws to me. &rdquo;`,
-    `&ldquo; I have never regretted my silence, as for my speech I’ve regretted it many times. &rdquo;`,
-    `&ldquo; Patience is the healthiest ingredient of our life. &rdquo;`,
-    `&ldquo; Don’t forget your own self while preaching to others &rdquo;`,
-    `&ldquo; No amount of guilt can change the past and no amount of worrying can change the future. &rdquo;`,
-  ]
-  cite.innerHTML = citeArr[index];
-  qouteBlock.innerHTML = qouteBlockArr[index];
-  index++;
-  if (index == qouteBlockArr.length) {
-    index = 0;
-  }
+    `&ldquo; To deny people their human rights is to challenge their very humanity. &rdquo;`,
+    `&ldquo; Love and compassion are necessities, not luxuries. Without them, humanity cannot survive. &rdquo;`,
+    `&ldquo; Those who are at war with others are not at peace with themselves. &rdquo;`,
+    `&ldquo; Liberty, Humanity, Justice, Equality. &rdquo;`,
+    `&ldquo; The greatness of humanity is not in being human, but in being humane. &rdquo;`,
+    `&ldquo; The true sign of intelligence is not knowledge but imagination, as logic will get you from A to B. Imagination will take you everywhere. &rdquo;`,
+    `&ldquo; Do not do to others what angers you if done to you by others. &rdquo;`,
+    `&ldquo; Be a good human being, a warm hearted, affectionate person. That is my fundamental belief. &rdquo;`,
+    `&ldquo; We are very, very small, but we are profoundly capable of very, very big things. &rdquo;`,
+    `&ldquo; No moral value is greater than humanity. &rdquo;`,
+  ];
+  qouteBlock.classList.add("hide");
+  setTimeout(() => {
+    cite.innerHTML = citeArr[index];
+    qouteBlock.innerHTML = qouteBlockArr[index];
+    index++;
+    if (index == qouteBlockArr.length) {
+      index = 0;
+    }
+    qouteBlock.classList.remove("hide");
+  }, 1000);
+}
+
+let interval = setInterval(changeQuote, 7000);
+
+randomquote.addEventListener("click", (eo) => {
+  clearInterval(interval);
+  changeQuote();
+  interval = setInterval(changeQuote, 7000);
 });
 
 sound.addEventListener("click", () => {
